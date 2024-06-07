@@ -36,6 +36,17 @@ export class NavbarComponent implements OnInit {
   currentMenuItems: MenuItem[] | undefined =[]
 
   ngOnInit(): void {
-      
+      this.fetchMenu();
+  }
+  private fetchMenu() {
+    return [
+      {
+        label: "Sign up",
+        styleClass: "font-bold"
+    },
+    {
+      label: "Log in",
+    }
+  ]
   }
 }
