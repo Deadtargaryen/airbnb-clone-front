@@ -1,1 +1,46 @@
-<p>navbar works!</p>
+<div class="sticky border-gray-200 top-o border-bottom-1 shadow-1 z-1">
+  <p-toolbar
+    [styleClass]="
+      'bg-white border-top-none border-x-none border-noround' +
+      'sm:flex sm:justify-content-center sm:w-full md:flex md:justify-content-between px-8'
+    "
+  >
+    <div
+      class="pl-1 cursor-pointer p-toolbar-group-start sm:hidden md:flex"
+      routerLink="/"
+    >
+      <fa-icon
+        [icon]="['fab', 'airbnb']"
+        size="3x"
+        class="text-primary"
+      ></fa-icon>
+      <div class="pl-2 text-2xl font-bold text-primary">airbnb</div>
+    </div>
+    <div
+      class="flex p-0 bg-white border-gray-300 p-toolbar-group-center border-round-3xl border-1 shadow-1 hover:shadow-2 middle-group search justify-content-around">
+        <button class="bg-white border-none p-button border-round-left-3xl border-noround-right border-right-none text-dark focus:shadow-none">
+            {{location}}
+        </button>
+        <div class="border-gray-300 border-1 border-left-none separator"></div>
+        <button class="bg-white border-none p-button border-noround text-dark focus:shadow-none">
+          {{dates}}
+        </button>
+        <div class="border-gray-300 border-1 border-left-none separator"></div>
+        <button class="p-2 text-gray-400 bg-white border-none p-button guest-btn border-round-right-3xl text-dark focus:shadow-none">
+          <div>{{guests}}</div>
+        </button>
+        <button class="flex mr-2 p-button search-icon align-items-center justify-content-center">
+          <fa-icon [icon]="'search'" class="text-sm"></fa-icon>
+        </button>
+    </div>
+    <div class="p-toolbar-group-end sm:hidden md:flex">
+      <a class="p-button p-button-link">Airbnb your home</a>
+      <p-menu #menu [model]="currentMenuItems" [popup]="true" styleClass="border-round-xl mt-1"></p-menu>
+      <button (click)="menu.toggle($event)" class="flex p-2 pl-3 ml-2 bg-white border-gray-300 menu align-content-center justify-content-around focus:shadow-none hover:shadow-1 border-round-3xl p-button">
+        <fa-icon [icon]="'bars'" class="mr-3 text-sm text-dark"></fa-icon>
+        <app-avatar [imageUrl]="" avatarSize="avatar-sm"></app-avatar>
+      </button>
+    </div>
+  </p-toolbar>
+  <app-category></app-category>
+</div>
