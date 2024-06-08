@@ -22,7 +22,8 @@ import { MessageService } from 'primeng/api';
     NavbarComponent,
     FooterComponent,
     ToastModule
-  ], // Add ButtonModule here
+  ], //add modules here
+  providers: [MessageService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
@@ -34,6 +35,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.initFontAwesome();
+    this.listenToastService();
   }
 
   private initFontAwesome(): void {
